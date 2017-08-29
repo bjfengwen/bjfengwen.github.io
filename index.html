@@ -36,8 +36,8 @@
 				</a>
 			</div>
 			<div class="col-xs-4 col-md-4">
-				<a href="#" class="thumbnail">
-					<img src="img/5.jpg" alt="...">
+				<a href="javascript:void(0)" class="thumbnail"  onclick="changeImage(this)">
+					<img src="img/11.jpeg" alt="..." id="she">
 				</a>
 			</div>
 			<div class="col-xs-4 col-md-4">
@@ -64,7 +64,34 @@
 			</div>
 		</div>
 	</div>
-	
+	<script src="https://cdn.bootcss.com/jquery/1.2.6/jquery.js"></script>
+	<script>   
+			function repeat(times, wait) {
+				var handle,
+					_arguments = arguments,
+					i = 11;
+				   handle = setInterval(function() {
+					i = i + 1; 
+					if (i === times) {
+						//clearInterval(handle);
+						//return;
+						i=11;
+					}
+					$("#she").attr("src","img/"+i+".jpeg");
+				}, wait);
+			}   
+		  repeat(18, 2000);
+
+
+	 var i=11;
+	function changeImage(_this){
+		i=i+1;
+		if(i==18){
+			i=11;
+		} 
+		$(_this).find("img").attr("src","img/"+i+".jpeg");
+	}
+	</script>
  
 
 </body>
