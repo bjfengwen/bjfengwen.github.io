@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+	<head>
+		<title>图片预览</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+		<link rel="stylesheet" type="text/css" href="../dist/mobile-photo-preview.min.css">
+		<style>
+		.preview-list img{width: 100px;height:100px;}
+		.preview-list a{display: inline-block;background-color: #ccc;}
+		.icon-del{background:url(icon-del-img.png) no-repeat;display: inline-block;width:20px;height: 20px;background-size: 20px 20px;position: absolute;left: 50%;top:.5rem;z-index: 3;}
+		</style>
+	</head>
+	<body>
+		<div class="preview-list">
+			<a href="http://oss.aliyuncs.com/wanse-att/aftersales/131039_1435917277_0.jpg" class="preview" ><img src="http://oss.aliyuncs.com/wanse-att/aftersales/131039_1435917277_0.jpg"></a>
+			<a href="http://oss.aliyuncs.com/wanse-att/aftersales/131039_1435917278_1.jpg" class="preview" ><img src="http://oss.aliyuncs.com/wanse-att/aftersales/131039_1435917278_1.jpg"></a>
+			<a href="http://oss.aliyuncs.com/wanse-att/aftersales/131039_1435917279_2.jpg" class="preview" ><img src="http://oss.aliyuncs.com/wanse-att/aftersales/131039_1435917279_2.jpg"></a>
+		</div>
+		<script type="text/javascript" src="../src/jquery-1.11.2.js"></script>
+		<script type="text/javascript" src="../dist/dialog.min.js"></script>
+		<script type="text/javascript" src="../src/mobile-photo-preview.js"></script>
+		<script>
+		$('.preview-list').MobilePhotoPreview({
+			trigger: '.preview',
+			show: function(c) {
+				var del = $('<span class="icon-del"></span>');
+				$('.imgViewTop', c).append(del);
+				var _this = this;
+				del.click(function() {
+					_this.current.remove();
+					_this.hide();
+				});
+			}
+		});
+		</script>
+	</body>
+</html>
