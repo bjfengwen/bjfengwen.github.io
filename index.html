@@ -7,7 +7,7 @@
 	<link href="css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
 	<link href="css/ohmygod.css" rel="stylesheet" type="text/css"/>
  
-
+<link rel="stylesheet" type="text/css" href="css/mobile-photo-preview.min.css">
 
 </head>
 <body>
@@ -35,8 +35,8 @@
 					<img src="img/4.jpg" alt="...">
 				</a>
 			</div>
-			<div class="col-xs-4 col-md-4">
-				<a href="javascript:void(0)" class="thumbnail"  onclick="changeImage(this)">
+			<div class="col-xs-4 col-md-4 showimg">
+				<a href="img/11.jpeg" class="preview thumbnail"  onclick="changeImage(this)">
 					<img src="img/11.jpeg" alt="..." id="she">
 				</a>
 			</div>
@@ -62,9 +62,11 @@
 					<img src="img/9.jpg" alt="...">
 				</a>
 			</div>
-		</div>
+		</div> 
 	</div>
-	<script src="https://cdn.bootcss.com/jquery/1.2.6/jquery.js"></script>
+	<script src="https://cdn.bootcss.com/jquery/1.11.2/jquery.js"></script>
+	<script type="text/javascript" src="js/dialog.min.js"></script>
+	<script type="text/javascript" src="js/mobile-photo-preview.js"></script>
 	<script>   
 			function repeat(times, wait) {
 				var handle,
@@ -80,7 +82,7 @@
 					//$("#she").attr("src","img/"+i+".jpeg");
 				}, wait);
 			}   
-		  repeat(18, 2000);
+		 // repeat(18, 2000);
 
 
 	 var i=11;
@@ -90,9 +92,17 @@
 			i=11;
 		} 
 		$(_this).find("img").attr("src","img/"+i+".jpeg");
+		$(_this).attr("href","img/"+i+".jpeg");
 	}
 	</script>
- 
+ <script>
+		$('.showimg').MobilePhotoPreview({
+			trigger: '.preview',
+			show: function(c) {
+				 
+			}
+		});
+		</script>
 
 </body>
 </html>
